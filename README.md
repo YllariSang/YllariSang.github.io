@@ -40,7 +40,6 @@ This is a student project developed for educational purposes as part of a third-
 
 For any questions about this Privacy Policy, please contact:
 
-Shawn Ashleigh Yllaris M. Cruz
 yllaris1004@gmail.com
 
 ---
