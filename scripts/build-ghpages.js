@@ -30,7 +30,9 @@ function copyRecursive(src, dest) {
 (async () => {
   const pkg = JSON.parse(fs.readFileSync('package.json', 'utf8'));
   const repoName = repoNameFromPkg(pkg) || 'your-repo-name';
-  const base = `/${repoName}/`;
+  // Allow overriding the base by setting ASTRO_BASE in the environment
+  const inferredBase = `/${repoName}/`;
+  const base = process.env.ASTRO_BASE || inferredBase;
   console.log('Using base:', base);
 
   // Run Astro build with ASTRO_BASE set for this child process
