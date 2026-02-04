@@ -6,7 +6,8 @@
     "dev": "astro dev",
     "build": "astro build",
     "preview": "astro preview",
-    "astro": "astro"
+    "astro": "astro",
+    "build:ghpages": "node scripts/build-ghpages.js"
   },
   "dependencies": {
     "astro": "^5.17.1"
