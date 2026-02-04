@@ -50,12 +50,11 @@ const { title, description, image, link, tags = [] } = Astro.props;
     box-shadow: 0 0 20px rgba(34, 197, 94, 0.5);
   }
 
-  /* The shine effect pseudo-element */
   .card::before {
     content: "";
     position: absolute;
     top: 0;
-    left: -85%; /* Start off-screen */
+    left: -85%;
     width: 50%;
     height: 100%;
     background: linear-gradient(
@@ -69,7 +68,7 @@ const { title, description, image, link, tags = [] } = Astro.props;
   }
 
   .card:hover::before {
-    left: 120%; /* Animate across the card */
+    left: 120%;
   }
 
   .card-content {
@@ -83,12 +82,11 @@ const { title, description, image, link, tags = [] } = Astro.props;
     font-family: "Poppins", sans-serif;
   }
 
-  /* This targets the actual <img> element rendered by Astro's Image component */
   .card :global(img) {
     display: block;
     width: 100%;
-    height: 225px; /* Maintain a consistent height for all cards */
-    object-fit: cover; /* Cover the area, cropping if necessary, but not distorting */
+    height: 225px;
+    object-fit: cover;
     transition: transform 0.4s ease-out;
   }
 

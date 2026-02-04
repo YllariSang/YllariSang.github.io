@@ -109,7 +109,7 @@ import chestImage from "../assets/stylized-chest.png";
         </div>
         <div class="skill-item">
           <Image
-            src="https://upload.wikimedia.org/wikipedia/commons/6/65/Microsoft_Office_logo_%282013%E2%80%932019%29.png"
+            src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT44dqy5y0MB8oIpT0PNd8qHCW9GJ09bQyTQw&s"
             alt="Microsoft Office"
             width={64}
             height={64}
@@ -375,18 +375,16 @@ import chestImage from "../assets/stylized-chest.png";
     margin-bottom: 2rem;
     border-radius: 1rem;
     text-align: center;
-    /* Add scroll margin to prevent the sticky header from covering the title */
     scroll-margin-top: 5rem;
   }
   .hero {
-    /* Using a semi-transparent background to see the effect through it */
     background-color: rgba(22, 27, 34, 0.5);
   }
   .hero h1 {
     font-size: 3rem;
     font-weight: 700;
     margin-bottom: 1rem;
-    color: #f0f6fc; /* Brighter color for the main heading */
+    color: #f0f6fc;
   }
   .emphasized-name {
     color: #22c55e;
@@ -498,7 +496,6 @@ import chestImage from "../assets/stylized-chest.png";
     line-height: 1.6;
   }
 
-  /* Styles for the scroll animation */
   .animate-on-scroll {
     opacity: 0;
     transform: translateY(30px);
@@ -512,10 +509,8 @@ import chestImage from "../assets/stylized-chest.png";
     transform: translateY(0);
   }
   .subtitle {
-    /* Ensure the subtitle has enough height to not jump when text appears */
     min-height: 1.6em;
   }
-  /* Custom styles for the Typed.js cursor */
   .typed-cursor {
     color: #a5b0bb;
     font-weight: 300;
@@ -547,7 +542,6 @@ import chestImage from "../assets/stylized-chest.png";
 </style>
 
 <script>
-  // Ensure the Typed library is loaded before running this script
   document.addEventListener("astro:page-load", function () {
     if (typeof Typed !== "undefined") {
       new Typed("#typed-subtitle", {
@@ -567,7 +561,6 @@ import chestImage from "../assets/stylized-chest.png";
       });
     }
 
-    // --- Screen Shake Logic ---
     const shakeLink = document.querySelector('a.card[href="#shake"]');
     const mainElement = document.querySelector("main");
 

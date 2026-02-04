@@ -1,5 +1,5 @@
 ---
-// This component creates an interactive pixel art companion that follows the cursor.
+
 ---
 
 <div id="pixel-companion">
@@ -16,9 +16,8 @@
   #pixel-companion {
     position: fixed;
     bottom: 20px;
-    left: 0; /* Use left: 0 as a base for the transform */
+    left: 0;
     z-index: 999; /* Ensure it's above most content but below modals */
-    /* Animate transform for smooth performance */
     will-change: transform;
   }
 
@@ -65,13 +64,12 @@
     visibility: visible;
   }
 
-  /* Walking Animations */
   @keyframes walk-right {
     from {
-      transform: translateX(-100px); /* Start off-screen */
+      transform: translateX(-100px);
     }
     to {
-      transform: translateX(100vw); /* End off-screen */
+      transform: translateX(100vw);
     }
   }
 
@@ -104,7 +102,6 @@
   function startWalking(direction) {
     if (!companion) return;
     companion.classList.remove("walk-left", "walk-right");
-    // A small delay to ensure the class removal is registered before adding the new one
     setTimeout(() => {
       companion.classList.add(direction);
     }, 10);
@@ -118,10 +115,8 @@
     }
   });
 
-  // Start the first walk
   startWalking("walk-right");
 
-  // --- Info on Hover Logic ---
   function setupInfoHovers() {
     const infoElements = document.querySelectorAll("[data-info-text]");
 
@@ -142,6 +137,5 @@
     });
   }
 
-  // Use DOMContentLoaded to ensure all elements are available to query
   document.addEventListener("astro:page-load", setupInfoHovers);
 </script>

@@ -22,7 +22,7 @@ import ScrollToTop from "../components/ScrollToTop.astro";
       src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.2/dist/confetti.browser.min.js"
     ></script>
     <script src="https://unpkg.com/typed.js@2.1.0/dist/typed.umd.js"></script>
-    <title>Astro Basics</title>
+    <title>My Portfolio!</title>
     <ViewTransitions />
   </head>
   <body>
@@ -34,47 +34,37 @@ import ScrollToTop from "../components/ScrollToTop.astro";
 </html>
 
 <script>
-  // We listen for the 'mousemove' event on the whole document.
   document.addEventListener("mousemove", (e) => {
-    // When the mouse moves, we set the --cursor-x and --cursor-y CSS variables
-    // to the mouse's position.
     document.documentElement.style.setProperty("--cursor-x", e.clientX + "px");
     document.documentElement.style.setProperty("--cursor-y", e.clientY + "px");
   });
 </script>
 
 <script>
-  // This script will handle animations that trigger on scroll.
   const observer = new IntersectionObserver((entries) => {
     entries.forEach((entry) => {
-      // If the element is visible, add the `visible` class
       if (entry.isIntersecting) {
         entry.target.classList.add("visible");
       }
     });
   });
 
-  // Find all elements with the `animate-on-scroll` class and observe them.
   const elementsToAnimate = document.querySelectorAll(".animate-on-scroll");
   elementsToAnimate.forEach((el) => observer.observe(el));
 </script>
 <script>
-  // This script will handle the sticky header
   const header = document.getElementById("main-header");
   const navLinks = document.querySelectorAll("#main-header nav a");
   const sections = document.querySelectorAll("main section[id]");
-  // The hero section's height is a good threshold
   const scrollThreshold = window.innerHeight * 0.8;
 
   window.addEventListener("scroll", () => {
-    // --- Sticky Header Logic ---
     if (window.scrollY > scrollThreshold) {
       header?.classList.add("sticky");
     } else {
       header?.classList.remove("sticky");
     }
 
-    // --- Active Link Highlighting ---
     let currentSectionId = "";
     sections.forEach((section) => {
       const sectionTop = section.offsetTop;
@@ -94,7 +84,6 @@ import ScrollToTop from "../components/ScrollToTop.astro";
 
 <style is:global>
   :root {
-    /* Set default cursor position for the gradient */
     --cursor-x: 50vw;
     --cursor-y: 50vh;
   }
@@ -109,8 +98,8 @@ import ScrollToTop from "../components/ScrollToTop.astro";
     width: 100%;
   }
   html {
-    background-color: #0d1117; /* A nice dark background */
-    color: #c9d1d9; /* A light text color for readability on the dark background */
+    background-color: #0d1117;
+    color: #c9d1d9;
   }
   body::before {
     content: "";
@@ -136,13 +125,11 @@ import ScrollToTop from "../components/ScrollToTop.astro";
     z-index: -1;
     pointer-events: none;
 
-    /* A faint grid pattern using repeating linear gradients */
     background-image:
       linear-gradient(rgba(201, 209, 217, 0.03) 1px, transparent 1px),
       linear-gradient(to right, rgba(201, 209, 217, 0.03) 1px, transparent 1px);
     background-size: 50px 50px;
 
-    /* A very slow animation to give it a subtle dynamic feel */
     animation: pan-grid 60s linear infinite;
   }
 

@@ -26,16 +26,12 @@
   const audio = document.getElementById("sfx");
 
   button?.addEventListener("click", (e) => {
-    // Play the sound effect
-    // We reset the time to 0 so it can be played again if clicked quickly
     if (audio instanceof HTMLAudioElement) {
       audio.currentTime = 0;
       audio.play();
     }
 
-    // --- Custom Confetti ---
     if (typeof confetti === "function") {
-      // Get the button's position to originate the confetti from there
       const rect = (e.target as HTMLElement).getBoundingClientRect();
       const x = (rect.left + rect.right) / 2 / window.innerWidth;
       const y = (rect.top + rect.bottom) / 2 / window.innerHeight;

@@ -10,6 +10,7 @@ export default defineConfig({
         hostname: "cdn.simpleicons.org",
       },
       { protocol: "https", hostname: "picsum.photos" },
+      { protocol: "https", hostname: "img.itch.zone" },
     ],
   },
 });

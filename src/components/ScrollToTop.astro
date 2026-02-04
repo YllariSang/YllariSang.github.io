@@ -1,5 +1,5 @@
 ---
-// A button that appears on scroll to take the user back to the top.
+
 ---
 
 <button id="scroll-to-top" title="Go to top" aria-label="Scroll to top">
@@ -67,15 +67,13 @@
   });
 
   button?.addEventListener("click", (e) => {
-    e.preventDefault(); // Prevent default anchor behavior
+    e.preventDefault();
 
     const startPosition = window.pageYOffset;
-    const distance = -startPosition; // Scroll to 0 (top)
-    const duration = 1000; // milliseconds, a bit longer for the bounce to feel right
+    const distance = -startPosition;
+    const duration = 1000;
     let startTime: number | null = null;
 
-    // Easing function (easeOutBounce)
-    // From https://easings.net/#easeOutBounce
     const easeOutBounce = (x: number): number => {
       const n1 = 7.5625;
       const d1 = 2.75;
