@@ -47,6 +47,14 @@ function copyRecursive(src, dest) {
   // copy dist -> docs
   if (fs.existsSync(distDir)) {
     copyRecursive(distDir, docsDir);
+    // Ensure GitHub Pages won't try to run Jekyll on the published folder
+    try {
+      fs.writeFileSync(path.join(docsDir, '.nojekyll'), '');
+      console.log('Wrote', path.join(docsDir, '.nojekyll'));
+    } catch (e) {
+      console.warn('Could not write .nojekyll to docs:', e.message);
+    }
+
     console.log('Copied', distDir, '→', docsDir);
   } else {
     console.error('Build output not found at', distDir);
