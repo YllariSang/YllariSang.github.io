@@ -1,11 +1,587 @@
 ---
-import Welcome from '../components/Welcome.astro';
-import Layout from '../layouts/Layout.astro';
-
-// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
+import Layout from "../layouts/Layout.astro";
+import InteractiveButton from "../components/InteractiveButton.astro";
+import { Image } from "astro:assets";
+import ProjectCard from "../components/ProjectCard.astro";
+import donutImage from "../assets/donut.png";
+import chestImage from "../assets/stylized-chest.png";
 ---
 
 <Layout>
-	<Welcome />
+  <main>
+    <section class="hero">
+      <h1>
+        Shawn Ashleigh <span
+          class="emphasized-name"
+          title="I really like this name">Yllaris</span
+        > M. Cruz
+      </h1>
+      <p class="subtitle"><span id="typed-subtitle"></span></p>
+      <InteractiveButton />
+    </section>
+
+    <section id="about" class="about animate-on-scroll">
+      <h2>About Me</h2>
+      <p>
+        I am a passionate IT Student with experience in Game Development, Web
+        Development, Full-Stack, Networking, etc. I love learning new
+        technologies and improving my skills. I believe in the power of open
+        source and community collaboration to drive innovation and growth.
+      </p>
+    </section>
+
+    <section id="skills" class="skills animate-on-scroll">
+      <h2>Skill Tree</h2>
+
+      <h3>Good</h3>
+      <div class="skill-list">
+        <div
+          class="skill-item"
+          data-info-text="Godot is my go-to open-source game engine for games."
+        >
+          <Image
+            src="https://cdn.simpleicons.org/godotengine/478cbf"
+            alt="Godot Engine"
+            width={64}
+            height={64}
+          />
+          <span>Godot</span>
+        </div>
+        <div
+          class="skill-item"
+          data-info-text="Blender, I use this for creating 3D models and assets!"
+        >
+          <Image
+            src="https://cdn.simpleicons.org/blender/f5792a"
+            alt="Blender"
+            width={64}
+            height={64}
+          />
+          <span>Blender</span>
+        </div>
+        <div
+          class="skill-item"
+          data-info-text="HTML5 the backbone of all my web projects."
+        >
+          <Image
+            src="https://cdn.simpleicons.org/html5/e34f26"
+            alt="HTML5"
+            width={64}
+            height={64}
+          />
+          <span>HTML</span>
+        </div>
+        <div
+          class="skill-item"
+          data-info-text="Aseprite is one of the best 2D art software I use!"
+        >
+          <Image
+            src="https://cdn.simpleicons.org/aseprite/ffffff"
+            alt="Aseprite"
+            width={64}
+            height={64}
+          />
+          <span>Aseprite</span>
+        </div>
+        <div
+          class="skill-item"
+          data-info-text="VS Code is my favorite and GOATed IDE."
+        >
+          <Image
+            src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/9a/Visual_Studio_Code_1.35_icon.svg/3840px-Visual_Studio_Code_1.35_icon.svg.png"
+            alt="Visual Studio Code"
+            width={64}
+            height={64}
+          />
+          <span>VS Code</span>
+        </div>
+        <div
+          class="skill-item"
+          data-info-text="GitHub is where I host and share my code repositories. Time to GitGud!"
+        >
+          <Image
+            src="https://cdn.simpleicons.org/github/ffffff"
+            alt="GitHub"
+            width={64}
+            height={64}
+          />
+          <span>GitHub</span>
+        </div>
+        <div class="skill-item">
+          <Image
+            src="https://upload.wikimedia.org/wikipedia/commons/6/65/Microsoft_Office_logo_%282013%E2%80%932019%29.png"
+            alt="Microsoft Office"
+            width={64}
+            height={64}
+          />
+          <span>Office Suite</span>
+        </div>
+        <div
+          class="skill-item"
+          data-info-text="Canva is my go-to for quick and good looking designs."
+        >
+          <Image
+            src="https://logo-teka.com/wp-content/uploads/2025/09/canva-icon-logo.png"
+            alt="Canva"
+            width={64}
+            height={64}
+          />
+          <span>Canva</span>
+        </div>
+      </div>
+
+      <h3>Decent</h3>
+      <div class="skill-list">
+        <div
+          class="skill-item"
+          data-info-text="GameMaker is great for 2D games and rapid prototyping. Undertale and various games inspired me to try this engine."
+        >
+          <Image
+            src="https://cdn.simpleicons.org/gamemaker/ffffff"
+            alt="GameMaker"
+            width={64}
+            height={64}
+          />
+          <span>GameMaker</span>
+        </div>
+        <div class="skill-item">
+          <Image
+            src="https://cdn.simpleicons.org/php/777bb4"
+            alt="PHP"
+            width={64}
+            height={64}
+          />
+          <span>PHP</span>
+        </div>
+        <div
+          class="skill-item"
+          data-info-text="Node.js great for building scalable network applications."
+        >
+          <Image
+            src="https://cdn.simpleicons.org/nodedotjs/339933"
+            alt="Node.js"
+            width={64}
+            height={64}
+          />
+          <span>Node.js</span>
+        </div>
+        <div
+          class="skill-item"
+          data-info-text="Adobe Photoshop is my favorite for image editing, the loading is kinda slow sometimes though..."
+        >
+          <Image
+            src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/af/Adobe_Photoshop_CC_icon.svg/3840px-Adobe_Photoshop_CC_icon.svg.png"
+            alt="Adobe Photoshop"
+            width={64}
+            height={64}
+          />
+          <span>Photoshop</span>
+        </div>
+        <div
+          class="skill-item"
+          data-info-text="DaVinci Resolve is my choice for video editing because it's free and powerful."
+        >
+          <Image
+            src="https://cdn.simpleicons.org/davinciresolve/ffffff"
+            alt="DaVinci Resolve"
+            width={64}
+            height={64}
+          />
+          <span>DaVinci Resolve</span>
+        </div>
+        <div
+          class="skill-item"
+          data-info-text="JavaScript, essential for interactive web development."
+        >
+          <Image
+            src="https://cdn.simpleicons.org/javascript/f7df1e"
+            alt="JavaScript"
+            width={64}
+            height={64}
+          />
+          <span>JavaScript</span>
+        </div>
+        <div
+          class="skill-item"
+          data-info-text="Cisco Packet Tracer to simulate and test network configurations."
+        >
+          <Image
+            src="https://cdn.simpleicons.org/cisco/1ba0d7"
+            alt="Cisco"
+            width={64}
+            height={64}
+          />
+          <span>Packet Tracer</span>
+        </div>
+        <div
+          class="skill-item"
+          data-info-text="Python is versatile and great, easy to read too!"
+        >
+          <Image
+            src="https://cdn.simpleicons.org/python/3776ab"
+            alt="Python"
+            width={64}
+            height={64}
+          />
+          <span>Python</span>
+        </div>
+      </div>
+
+      <h3>Learning</h3>
+      <div class="skill-list">
+        <div class="skill-item">
+          <Image
+            src="https://cdn.simpleicons.org/react/61DAFB"
+            alt="React"
+            width={64}
+            height={64}
+          />
+          <span>React</span>
+        </div>
+        <div class="skill-item">
+          <Image
+            src="https://cdn.simpleicons.org/preact/673ab8"
+            alt="Preact"
+            width={64}
+            height={64}
+          />
+          <span>Preact</span>
+        </div>
+        <div class="skill-item">
+          <Image
+            src="https://cdn.simpleicons.org/threedotjs/ffffff"
+            alt="Three.js"
+            width={64}
+            height={64}
+          />
+          <span>Three.js</span>
+        </div>
+        <div class="skill-item">
+          <Image
+            src="https://cdn.simpleicons.org/unity/ffffff"
+            alt="Unity"
+            width={64}
+            height={64}
+          />
+          <span>Unity</span>
+        </div>
+        <div class="skill-item">
+          <Image
+            src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/bd/Logo_C_sharp.svg/960px-Logo_C_sharp.svg.png"
+            alt="C#"
+            width={64}
+            height={64}
+          />
+          <span>C#</span>
+        </div>
+      </div>
+    </section>
+
+    <section id="projects" class="projects animate-on-scroll">
+      <h2>Creations</h2>
+      <div class="project-list">
+        <ProjectCard
+          title="Crescere | My First Game"
+          description="A cool game I made with Godot for a school project. It features a 2D size based platformer"
+          image="https://img.itch.zone/aW1nLzI0NTU1MDg4LnBuZw==/original/ewjfY3.png"
+          link="https://yllaris.itch.io/crescere"
+          tags={["Godot", "Aseprite"]}
+        />
+        <ProjectCard
+          title="3D Donut"
+          description="The canon event of every 3D artist, the fabled and glorious donut."
+          image={donutImage}
+          link="https://skfb.ly/pFXLv"
+          tags={["Blender"]}
+        />
+        <ProjectCard
+          title="Portfolio Website"
+          description="The very website you are looking at now, built with Astro and a lot of love."
+          image="https://picsum.photos/seed/project3/400/225"
+          link="#shake"
+          tags={["Astro", "JavaScript", "CSS"]}
+        />
+        <ProjectCard
+          title="Stylized Chest"
+          description="Stylized chest model created in Blender for a school activity."
+          image={chestImage}
+          link="https://skfb.ly/pFXKO"
+          tags={["Blender", "3D Modeling"]}
+        />
+      </div>
+    </section>
+
+    <section id="contact" class="contact animate-on-scroll">
+      <h2>Get in Touch</h2>
+      <p>
+        I'm always open to discussing new projects or opportunities. I would be
+        happy for you to reach out!
+      </p>
+      <div class="contact-links">
+        <a
+          href="https://mail.google.com/mail/?view=cm&fs=1&to=yllaris1004@gmail.com"
+          class="email-link"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          yllaris1004@gmail.com
+        </a>
+        <a href="/CV.pdf" class="resume-button" download>
+          Download My Resume
+        </a>
+        <div class="social-icons">
+          <a
+            href="https://github.com/YllariSang"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="GitHub Profile"
+            data-info-text="Check out my code on GitHub!"
+          >
+            <Image
+              src="https://cdn.simpleicons.org/github/ffffff"
+              alt="GitHub Icon"
+              width={32}
+              height={32}
+            />
+          </a>
+          <a
+            href="https://www.linkedin.com/in/shawn-m-cruz/"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="LinkedIn Profile"
+            data-info-text="Connect with me on LinkedIn!"
+          >
+            <Image
+              src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/ca/LinkedIn_logo_initials.png/960px-LinkedIn_logo_initials.png"
+              alt="LinkedIn Icon"
+              width={32}
+              height={32}
+            />
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
 </Layout>
+
+<style>
+  main {
+    padding: 2rem;
+    max-width: 1200px;
+    margin: auto;
+  }
+  section {
+    padding: 4rem 2rem;
+    margin-bottom: 2rem;
+    border-radius: 1rem;
+    text-align: center;
+    /* Add scroll margin to prevent the sticky header from covering the title */
+    scroll-margin-top: 5rem;
+  }
+  .hero {
+    /* Using a semi-transparent background to see the effect through it */
+    background-color: rgba(22, 27, 34, 0.5);
+  }
+  .hero h1 {
+    font-size: 3rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    color: #f0f6fc; /* Brighter color for the main heading */
+  }
+  .emphasized-name {
+    color: #22c55e;
+    text-shadow: 0 0 10px rgba(34, 197, 94, 0.6);
+    cursor: help;
+    transition: color 0.2s ease;
+  }
+  .about {
+    background-color: rgba(22, 27, 34, 0.5);
+  }
+  .projects {
+    background-color: rgba(22, 27, 34, 0.5);
+  }
+  .contact {
+    background-color: rgba(22, 27, 34, 0.5);
+    text-align: center;
+  }
+  .contact-links {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 2rem;
+    margin-top: 2rem;
+  }
+  .contact-links .email-link,
+  .contact-links .resume-button {
+    color: #f0f6fc;
+    text-decoration: none;
+    font-size: 1.1rem;
+    font-weight: 700;
+    padding: 0.5rem 1.5rem;
+    border: 1px solid #22c55e;
+    border-radius: 0.5rem;
+    transition:
+      background-color 0.2s ease,
+      color 0.2s ease;
+  }
+  .contact-links .email-link:hover,
+  .contact-links .resume-button:hover {
+    background-color: #22c55e;
+  }
+  .social-icons {
+    display: flex;
+    gap: 2rem;
+  }
+  .social-icons a {
+    transition: transform 0.2s ease;
+  }
+  .social-icons a:hover {
+    transform: scale(1.15);
+  }
+  .project-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin-top: 3rem;
+  }
+  .skills {
+    background-color: rgba(22, 27, 34, 0.5);
+  }
+  .skill-list {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    flex-wrap: wrap;
+    margin-top: 2rem;
+    align-items: flex-start;
+  }
+  .skills h3 {
+    font-size: 1.5rem;
+    color: #a5b0bb;
+    margin-top: 3rem;
+    margin-bottom: 1rem;
+    border-bottom: 1px solid rgba(165, 176, 187, 0.3);
+    padding-bottom: 0.5rem;
+    display: inline-block;
+  }
+  .skill-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.75rem;
+    width: 100px;
+    text-align: center;
+    padding: 1rem 0.5rem;
+    border-radius: 0.75rem;
+    transition:
+      transform 0.2s ease-out,
+      background-color 0.2s ease-out,
+      box-shadow 0.2s ease-out;
+  }
+  .skill-item img {
+    transition: transform 0.2s ease;
+  }
+  .skill-item:hover {
+    transform: translateY(-10px);
+    background-color: rgba(36, 43, 53, 0.7);
+    box-shadow: 0 15px 25px rgba(0, 0, 0, 0.3);
+  }
+  h2 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    color: #f0f6fc;
+  }
+  p {
+    max-width: 60ch;
+    margin: 0 auto;
+    line-height: 1.6;
+  }
+
+  /* Styles for the scroll animation */
+  .animate-on-scroll {
+    opacity: 0;
+    transform: translateY(30px);
+    transition:
+      opacity 0.6s ease-out,
+      transform 0.6s ease-out;
+  }
+
+  .animate-on-scroll.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  .subtitle {
+    /* Ensure the subtitle has enough height to not jump when text appears */
+    min-height: 1.6em;
+  }
+  /* Custom styles for the Typed.js cursor */
+  .typed-cursor {
+    color: #a5b0bb;
+    font-weight: 300;
+  }
+
+  @keyframes screen-shake {
+    0%,
+    100% {
+      transform: translate(0, 0);
+    }
+    10%,
+    30%,
+    50%,
+    70%,
+    90% {
+      transform: translate(-1px, 1px);
+    }
+    20%,
+    40%,
+    60%,
+    80% {
+      transform: translate(1px, -1px);
+    }
+  }
+
+  main.shake {
+    animation: screen-shake 0.3s cubic-bezier(0.36, 0.07, 0.19, 0.97);
+  }
+</style>
+
+<script>
+  // Ensure the Typed library is loaded before running this script
+  document.addEventListener("astro:page-load", function () {
+    if (typeof Typed !== "undefined") {
+      new Typed("#typed-subtitle", {
+        strings: [
+          "I love Game Development",
+          "Open Source is the GOAT",
+          "2D/3D Artist",
+          "Creative Coder",
+          "Web Developer",
+          "Full-Stack Enthusiast",
+          "Learner for Life",
+        ],
+        typeSpeed: 50,
+        backSpeed: 30,
+        backDelay: 2000,
+        loop: true,
+      });
+    }
+
+    // --- Screen Shake Logic ---
+    const shakeLink = document.querySelector('a.card[href="#shake"]');
+    const mainElement = document.querySelector("main");
+
+    shakeLink?.addEventListener("click", (e) => {
+      e.preventDefault();
+      if (mainElement && !mainElement.classList.contains("shake")) {
+        mainElement.classList.add("shake");
+      }
+    });
+
+    mainElement?.addEventListener("animationend", () => {
+      if (mainElement.classList.contains("shake")) {
+        mainElement.classList.remove("shake");
+      }
+    });
+  });
+</script>

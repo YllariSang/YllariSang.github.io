@@ -1,23 +1,157 @@
+---
+import { ViewTransitions } from "astro:transitions";
+import Header from "../components/Header.astro";
+import PixelCompanion from "../components/PixelCompanion.astro";
+import ScrollToTop from "../components/ScrollToTop.astro";
+---
+
 <!doctype html>
 <html lang="en">
-	<head>
-		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<link rel="icon" href="/favicon.ico" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro Basics</title>
-	</head>
-	<body>
-		<slot />
-	</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="generator" content={Astro.generator} />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@700&family=Roboto:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <script
+      src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.2/dist/confetti.browser.min.js"
+    ></script>
+    <script src="https://unpkg.com/typed.js@2.1.0/dist/typed.umd.js"></script>
+    <title>Astro Basics</title>
+    <ViewTransitions />
+  </head>
+  <body>
+    <PixelCompanion />
+    <ScrollToTop />
+    <Header />
+    <slot />
+  </body>
 </html>
 
-<style>
-	html,
-	body {
-		margin: 0;
-		width: 100%;
-		height: 100%;
-	}
+<script>
+  // We listen for the 'mousemove' event on the whole document.
+  document.addEventListener("mousemove", (e) => {
+    // When the mouse moves, we set the --cursor-x and --cursor-y CSS variables
+    // to the mouse's position.
+    document.documentElement.style.setProperty("--cursor-x", e.clientX + "px");
+    document.documentElement.style.setProperty("--cursor-y", e.clientY + "px");
+  });
+</script>
+
+<script>
+  // This script will handle animations that trigger on scroll.
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      // If the element is visible, add the `visible` class
+      if (entry.isIntersecting) {
+        entry.target.classList.add("visible");
+      }
+    });
+  });
+
+  // Find all elements with the `animate-on-scroll` class and observe them.
+  const elementsToAnimate = document.querySelectorAll(".animate-on-scroll");
+  elementsToAnimate.forEach((el) => observer.observe(el));
+</script>
+<script>
+  // This script will handle the sticky header
+  const header = document.getElementById("main-header");
+  const navLinks = document.querySelectorAll("#main-header nav a");
+  const sections = document.querySelectorAll("main section[id]");
+  // The hero section's height is a good threshold
+  const scrollThreshold = window.innerHeight * 0.8;
+
+  window.addEventListener("scroll", () => {
+    // --- Sticky Header Logic ---
+    if (window.scrollY > scrollThreshold) {
+      header?.classList.add("sticky");
+    } else {
+      header?.classList.remove("sticky");
+    }
+
+    // --- Active Link Highlighting ---
+    let currentSectionId = "";
+    sections.forEach((section) => {
+      const sectionTop = section.offsetTop;
+      if (pageYOffset >= sectionTop - 150) {
+        currentSectionId = section.getAttribute("id") || "";
+      }
+    });
+
+    navLinks.forEach((link) => {
+      link.classList.remove("active");
+      if (link.getAttribute("href") === `#${currentSectionId}`) {
+        link.classList.add("active");
+      }
+    });
+  });
+</script>
+
+<style is:global>
+  :root {
+    /* Set default cursor position for the gradient */
+    --cursor-x: 50vw;
+    --cursor-y: 50vh;
+  }
+  body {
+    font-family: "Roboto", sans-serif;
+    position: relative;
+    isolation: isolate;
+  }
+  html,
+  body {
+    margin: 0;
+    width: 100%;
+  }
+  html {
+    background-color: #0d1117; /* A nice dark background */
+    color: #c9d1d9; /* A light text color for readability on the dark background */
+  }
+  body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    z-index: -1;
+    background-image: radial-gradient(
+      circle at var(--cursor-x) var(--cursor-y),
+      rgba(34, 197, 94, 0.15),
+      transparent 25vw
+    );
+  }
+  h1,
+  h2,
+  h3 {
+    font-family: "Poppins", sans-serif;
+  }
+
+  body::after {
+    content: "";
+    position: fixed;
+    inset: 0;
+    z-index: -1;
+    pointer-events: none;
+
+    /* A faint grid pattern using repeating linear gradients */
+    background-image:
+      linear-gradient(rgba(201, 209, 217, 0.03) 1px, transparent 1px),
+      linear-gradient(to right, rgba(201, 209, 217, 0.03) 1px, transparent 1px);
+    background-size: 50px 50px;
+
+    /* A very slow animation to give it a subtle dynamic feel */
+    animation: pan-grid 60s linear infinite;
+  }
+
+  @keyframes pan-grid {
+    0% {
+      background-position: 0 0;
+    }
+    100% {
+      background-position: 50px 50px;
+    }
+  }
 </style>

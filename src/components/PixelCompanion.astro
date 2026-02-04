@@ -1,0 +1,147 @@
+---
+// This component creates an interactive pixel art companion that follows the cursor.
+---
+
+<div id="pixel-companion">
+  <img
+    src="/pixel-character.gif"
+    alt="Pixel Companion"
+    width="100"
+    height="100"
+  />
+  <div class="speech-bubble"></div>
+</div>
+
+<style>
+  #pixel-companion {
+    position: fixed;
+    bottom: 20px;
+    left: 0; /* Use left: 0 as a base for the transform */
+    z-index: 999; /* Ensure it's above most content but below modals */
+    /* Animate transform for smooth performance */
+    will-change: transform;
+  }
+
+  #pixel-companion img {
+    display: block;
+    image-rendering: pixelated;
+    pointer-events: none;
+    cursor: default;
+  }
+
+  .speech-bubble {
+    position: absolute;
+    bottom: calc(100% + 10px); /* Position above the companion */
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #333;
+    color: #fff;
+    padding: 8px 12px;
+    border-radius: 8px;
+    font-size: 0.8rem;
+    white-space: nowrap;
+    opacity: 0;
+    visibility: hidden;
+    transition:
+      opacity 0.3s ease,
+      visibility 0.3s ease;
+    pointer-events: none;
+    font-family: "Roboto Mono", monospace; /* A more "techy" font */
+  }
+
+  .speech-bubble::after {
+    content: "";
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    border-width: 5px;
+    border-style: solid;
+    border-color: #333 transparent transparent transparent;
+  }
+
+  .speech-bubble.show {
+    opacity: 1;
+    visibility: visible;
+  }
+
+  /* Walking Animations */
+  @keyframes walk-right {
+    from {
+      transform: translateX(-100px); /* Start off-screen */
+    }
+    to {
+      transform: translateX(100vw); /* End off-screen */
+    }
+  }
+
+  @keyframes walk-left {
+    from {
+      transform: translateX(100vw);
+    }
+    to {
+      transform: translateX(-100px);
+    }
+  }
+
+  .walk-right {
+    animation: walk-right 30s linear forwards;
+  }
+
+  .walk-left {
+    animation: walk-left 30s linear forwards;
+  }
+
+  .walk-left img {
+    transform: scaleX(-1);
+  }
+</style>
+
+<script>
+  const companion = document.getElementById("pixel-companion");
+  const speechBubble = companion?.querySelector(".speech-bubble");
+
+  function startWalking(direction) {
+    if (!companion) return;
+    companion.classList.remove("walk-left", "walk-right");
+    // A small delay to ensure the class removal is registered before adding the new one
+    setTimeout(() => {
+      companion.classList.add(direction);
+    }, 10);
+  }
+
+  companion?.addEventListener("animationend", () => {
+    if (companion.classList.contains("walk-right")) {
+      startWalking("walk-left");
+    } else {
+      startWalking("walk-right");
+    }
+  });
+
+  // Start the first walk
+  startWalking("walk-right");
+
+  // --- Info on Hover Logic ---
+  function setupInfoHovers() {
+    const infoElements = document.querySelectorAll("[data-info-text]");
+
+    infoElements.forEach((el) => {
+      el.addEventListener("mouseenter", () => {
+        const infoText = el.getAttribute("data-info-text");
+        if (speechBubble && infoText) {
+          speechBubble.textContent = infoText;
+          speechBubble.classList.add("show");
+        }
+      });
+
+      el.addEventListener("mouseleave", () => {
+        if (speechBubble) {
+          speechBubble.classList.remove("show");
+        }
+      });
+    });
+  }
+
+  // Use DOMContentLoaded to ensure all elements are available to query
+  document.addEventListener("astro:page-load", setupInfoHovers);
+</script>

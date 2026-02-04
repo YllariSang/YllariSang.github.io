@@ -1,0 +1,147 @@
+---
+// This is the navigation header that will become sticky on scroll.
+---
+
+<header id="main-header">
+  <button class="menu-toggle" aria-label="Toggle Menu">
+    <span class="bar"></span>
+    <span class="bar"></span>
+    <span class="bar"></span>
+  </button>
+  <nav>
+    <a href="#about">About</a>
+    <a href="#skills">Skill Tree</a>
+    <a href="#projects">Creations</a>
+    <a href="#contact">Contact</a>
+  </nav>
+</header>
+
+<style>
+  header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 1rem 2rem;
+    background-color: transparent;
+    z-index: 100;
+    transition:
+      background-color 0.3s ease,
+      box-shadow 0.3s ease;
+    text-align: center;
+  }
+
+  header.sticky {
+    background-color: rgba(13, 17, 23, 0.8);
+    backdrop-filter: blur(10px);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+  }
+
+  nav {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+  }
+
+  nav a {
+    color: #f0f6fc;
+    text-decoration: none;
+    font-weight: 700;
+    font-family: "Poppins", sans-serif;
+    transition: color 0.2s ease;
+  }
+
+  nav a:hover {
+    color: #22c55e;
+  }
+
+  nav a.active {
+    color: #22c55e;
+    text-shadow: 0 0 8px rgba(34, 197, 94, 0.5);
+  }
+
+  .menu-toggle {
+    display: none; /* Hidden on desktop */
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 1rem;
+    z-index: 101;
+  }
+
+  @media (max-width: 768px) {
+    header {
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+      padding: 0.5rem 1rem;
+    }
+
+    .menu-toggle {
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+      position: relative;
+    }
+
+    .menu-toggle .bar {
+      width: 25px;
+      height: 3px;
+      background-color: #f0f6fc;
+      border-radius: 2px;
+      transition:
+        transform 0.3s ease,
+        opacity 0.3s ease;
+    }
+
+    /* Animate hamburger to an 'X' */
+    header.nav-open .menu-toggle .bar:nth-child(1) {
+      transform: translateY(8px) rotate(45deg);
+    }
+    header.nav-open .menu-toggle .bar:nth-child(2) {
+      opacity: 0;
+    }
+    header.nav-open .menu-toggle .bar:nth-child(3) {
+      transform: translateY(-8px) rotate(-45deg);
+    }
+
+    nav {
+      position: fixed;
+      top: 0;
+      left: 100%; /* Start off-screen */
+      width: 100%;
+      height: 100%;
+      background: rgba(13, 17, 23, 0.95);
+      backdrop-filter: blur(10px);
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      transition: transform 0.4s cubic-bezier(0.77, 0, 0.175, 1);
+    }
+
+    header.nav-open nav {
+      transform: translateX(-100%);
+    }
+
+    nav a {
+      font-size: 1.75rem;
+    }
+  }
+</style>
+
+<script>
+  const header = document.getElementById("main-header");
+  const menuToggle = header.querySelector(".menu-toggle");
+  const navLinks = header.querySelectorAll("nav a");
+
+  menuToggle.addEventListener("click", () => {
+    header.classList.toggle("nav-open");
+  });
+
+  // Close the mobile menu when a link is clicked
+  navLinks.forEach((link) => {
+    link.addEventListener("click", () => {
+      header.classList.remove("nav-open");
+    });
+  });
+</script>

@@ -1,0 +1,51 @@
+<button id="interactive-button">Click for a Yippee!</button>
+<audio
+  id="sfx"
+  src="https://cdn.pixabay.com/download/audio/2023/08/31/audio_a65b7a0f6b.mp3?filename=people-yippee-147032.mp3"
+  preload="auto"></audio>
+
+<style>
+  button {
+    background-color: #22c55e;
+    color: white;
+    border: none;
+    padding: 1rem 2rem;
+    border-radius: 0.5rem;
+    font-size: 1rem;
+    cursor: pointer;
+    margin-top: 1.5rem;
+    transition: transform 0.2s ease;
+  }
+  button:hover {
+    transform: scale(1.05);
+  }
+</style>
+
+<script>
+  const button = document.getElementById("interactive-button");
+  const audio = document.getElementById("sfx");
+
+  button?.addEventListener("click", (e) => {
+    // Play the sound effect
+    // We reset the time to 0 so it can be played again if clicked quickly
+    if (audio instanceof HTMLAudioElement) {
+      audio.currentTime = 0;
+      audio.play();
+    }
+
+    // --- Custom Confetti ---
+    if (typeof confetti === "function") {
+      // Get the button's position to originate the confetti from there
+      const rect = (e.target as HTMLElement).getBoundingClientRect();
+      const x = (rect.left + rect.right) / 2 / window.innerWidth;
+      const y = (rect.top + rect.bottom) / 2 / window.innerHeight;
+
+      confetti({
+        particleCount: 150,
+        spread: 70,
+        origin: { x, y },
+        colors: ["#22c55e", "#bc52ee", "#f0f6fc", "#a5b0bb"],
+      });
+    }
+  });
+</script>
