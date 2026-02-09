@@ -5,6 +5,8 @@ import { Image } from "astro:assets";
 import ProjectCard from "../components/ProjectCard.astro";
 import donutImage from "../assets/donut.png";
 import chestImage from "../assets/stylized-chest.png";
+import notebookImage from "../assets/notebook.png";
+import portfolioImage from "../assets/portfolio.png";
 ---
 
 <Layout>
@@ -33,7 +35,7 @@ import chestImage from "../assets/stylized-chest.png";
     <section id="skills" class="skills animate-on-scroll">
       <h2>Skill Tree</h2>
 
-      <h3>Good</h3>
+      <h3>Great</h3>
       <div class="skill-list">
         <div
           class="skill-item"
@@ -130,7 +132,7 @@ import chestImage from "../assets/stylized-chest.png";
         </div>
       </div>
 
-      <h3>Decent</h3>
+      <h3>Good</h3>
       <div class="skill-list">
         <div
           class="skill-item"
@@ -143,6 +145,42 @@ import chestImage from "../assets/stylized-chest.png";
             height={64}
           />
           <span>GameMaker</span>
+        </div>
+        <div
+          class="skill-item"
+          data-info-text="Laravel is a PHP framework for web applications with expressive, elegant syntax."
+        >
+          <Image
+            src="https://cdn.simpleicons.org/laravel/ff2d20"
+            alt="Laravel"
+            width={64}
+            height={64}
+          />
+          <span>Laravel</span>
+        </div>
+        <div
+          class="skill-item"
+          data-info-text="A utility-first CSS framework for rapidly building custom designs."
+        >
+          <Image
+            src="https://cdn.simpleicons.org/tailwindcss/06b6d4"
+            alt="Tailwind CSS"
+            width={64}
+            height={64}
+          />
+          <span>Tailwind</span>
+        </div>
+        <div
+          class="skill-item"
+          data-info-text="A popular front-end framework for developing responsive, mobile-first projects on the web."
+        >
+          <Image
+            src="https://cdn.simpleicons.org/bootstrap/7952b3"
+            alt="Bootstrap"
+            width={64}
+            height={64}
+          />
+          <span>Bootstrap</span>
         </div>
         <div class="skill-item">
           <Image
@@ -279,6 +317,7 @@ import chestImage from "../assets/stylized-chest.png";
 
     <section id="projects" class="projects animate-on-scroll">
       <h2>Creations</h2>
+      <p>Clicking on the cards redirect to my works!</p>
       <div class="project-list">
         <ProjectCard
           title="Crescere | My First Game"
@@ -288,25 +327,32 @@ import chestImage from "../assets/stylized-chest.png";
           tags={["Godot", "Aseprite"]}
         />
         <ProjectCard
-          title="3D Donut"
+          title="Donut 3D Model"
           description="The canon event of every 3D artist, the fabled and glorious donut."
           image={donutImage}
           link="https://skfb.ly/pFXLv"
-          tags={["Blender"]}
+          tags={["Blender, 3D Modeling"]}
         />
         <ProjectCard
           title="Portfolio Website"
           description="The very website you are looking at now, built with Astro and a lot of love."
-          image="https://picsum.photos/seed/project3/400/225"
+          image={portfolioImage}
           link="#shake"
           tags={["Astro", "JavaScript", "CSS"]}
         />
         <ProjectCard
-          title="Stylized Chest"
+          title="Stylized Chest 3D Model"
           description="Stylized chest model created in Blender for a school activity."
           image={chestImage}
           link="https://skfb.ly/pFXKO"
           tags={["Blender", "3D Modeling"]}
+        />
+        <ProjectCard
+          title="Notebook 3D Model"
+          description="A notebook model created in Blender for an activity to capture 3 Orthographic View."
+          image={notebookImage}
+          link="https://skfb.ly/pGqvT"
+          tags={["Blender, 3D Modeling"]}
         />
       </div>
     </section>
@@ -538,6 +584,17 @@ import chestImage from "../assets/stylized-chest.png";
 
   main.shake {
     animation: screen-shake 0.3s cubic-bezier(0.36, 0.07, 0.19, 0.97);
+  }
+</style>
+
+<style is:global>
+  body {
+    background-color: #0d1117;
+    background-image: radial-gradient(
+      rgba(255, 255, 255, 0.07) 1px,
+      transparent 0
+    );
+    background-size: 25px 25px;
   }
 </style>
 
