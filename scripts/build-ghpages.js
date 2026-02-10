@@ -2,10 +2,14 @@ import { execSync } from 'child_process';
 import fs from 'fs';
 import path from 'path';
 
+const repoName = 'YllariSang.github.io';
+const base = '/';
+
+console.log(`Using base: ${base}`);
+
 function repoNameFromPkg(pkg) {
   if (pkg.repository) {
     const repo = typeof pkg.repository === 'string' ? pkg.repository : pkg.repository.url || '';
-    // examples: git+https://github.com/user/repo.git or https://github.com/user/repo.git
     const m = repo.match(/github.com[:/](.+?)\/(.+?)(?:\.git)?$/);
     if (m) return m[2];
   }
