@@ -10,15 +10,17 @@ export interface Props {
 }
 
 const { title, description, image, link, tags = [] } = Astro.props;
+const imageSrc = typeof image === "string" ? image : (image && image.src) || "";
 ---
 
 <a href={link} class="card" target="_blank" rel="noopener noreferrer">
-  ---
-  { /* Render image: if `image` is an object (ImageMetadata) use its `src`, otherwise use the string directly */ }
-  {
-    const imageSrc = typeof image === 'string' ? image : (image && image.src) || '';
-  }
-  <img src={imageSrc} alt={`Screenshot of ${title}`} width="400" height="225" loading="lazy" />
+  <img
+    src={imageSrc}
+    alt={`Screenshot of ${title}`}
+    width="400"
+    height="225"
+    loading="lazy"
+  />
   <div class="card-content">
     <h4>{title}</h4>
     <p>{description}</p>
