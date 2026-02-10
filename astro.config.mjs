@@ -6,6 +6,6 @@ export default defineConfig({
   integrations: [tailwind()],
 
   // Replace with your details
-  site: 'https://<YOUR_USERNAME>.github.io',
-  base: '/<YOUR_REPOSITORY_NAME>',
+  site: 'https://YllariSang.github.io',
+  base: '/My Cool Portfolio',
 });
