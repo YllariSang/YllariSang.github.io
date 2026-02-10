@@ -22,4 +22,5 @@ jobs:
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./docs
-          publish_branch: main
+          # Publish to gh-pages branch to avoid deploying from main -> main
+          publish_branch: gh-pages
