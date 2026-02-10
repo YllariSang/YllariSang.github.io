@@ -1,7 +1,6 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import InteractiveButton from "../components/InteractiveButton.astro";
-import { Image } from "astro:assets";
 import ProjectCard from "../components/ProjectCard.astro";
 import donutImage from "../assets/donut.png";
 import chestImage from "../assets/stylized-chest.png";
@@ -41,11 +40,12 @@ import portfolioImage from "../assets/portfolio.png";
           class="skill-item"
           data-info-text="Godot is my go-to open-source game engine for games."
         >
-          <Image
+          <img
             src="https://cdn.simpleicons.org/godotengine/478cbf"
             alt="Godot Engine"
-            width={64}
-            height={64}
+            width="64"
+            height="64"
+            loading="lazy"
           />
           <span>Godot</span>
         </div>
@@ -53,11 +53,12 @@ import portfolioImage from "../assets/portfolio.png";
           class="skill-item"
           data-info-text="Blender, I use this for creating 3D models and assets!"
         >
-          <Image
+          <img
             src="https://cdn.simpleicons.org/blender/f5792a"
             alt="Blender"
-            width={64}
-            height={64}
+            width="64"
+            height="64"
+            loading="lazy"
           />
           <span>Blender</span>
         </div>
@@ -65,11 +66,12 @@ import portfolioImage from "../assets/portfolio.png";
           class="skill-item"
           data-info-text="HTML5 the backbone of all my web projects."
         >
-          <Image
+          <img
             src="https://cdn.simpleicons.org/html5/e34f26"
             alt="HTML5"
-            width={64}
-            height={64}
+            width="64"
+            height="64"
+            loading="lazy"
           />
           <span>HTML</span>
         </div>
@@ -77,11 +79,12 @@ import portfolioImage from "../assets/portfolio.png";
           class="skill-item"
           data-info-text="Aseprite is one of the best 2D art software I use!"
         >
-          <Image
+          <img
             src="https://cdn.simpleicons.org/aseprite/ffffff"
             alt="Aseprite"
-            width={64}
-            height={64}
+            width="64"
+            height="64"
+            loading="lazy"
           />
           <span>Aseprite</span>
         </div>
@@ -89,11 +92,12 @@ import portfolioImage from "../assets/portfolio.png";
           class="skill-item"
           data-info-text="VS Code is my favorite and GOATed IDE."
         >
-          <Image
+          <img
             src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/9a/Visual_Studio_Code_1.35_icon.svg/3840px-Visual_Studio_Code_1.35_icon.svg.png"
             alt="Visual Studio Code"
-            width={64}
-            height={64}
+            width="64"
+            height="64"
+            loading="lazy"
           />
           <span>VS Code</span>
         </div>
@@ -101,20 +105,22 @@ import portfolioImage from "../assets/portfolio.png";
           class="skill-item"
           data-info-text="GitHub is where I host and share my code repositories. Time to GitGud!"
         >
-          <Image
+          <img
             src="https://cdn.simpleicons.org/github/ffffff"
             alt="GitHub"
-            width={64}
-            height={64}
+            width="64"
+            height="64"
+            loading="lazy"
           />
           <span>GitHub</span>
         </div>
         <div class="skill-item">
-          <Image
+          <img
             src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT44dqy5y0MB8oIpT0PNd8qHCW9GJ09bQyTQw&s"
             alt="Microsoft Office"
-            width={64}
-            height={64}
+            width="64"
+            height="64"
+            loading="lazy"
           />
           <span>Office Suite</span>
         </div>
@@ -122,11 +128,12 @@ import portfolioImage from "../assets/portfolio.png";
           class="skill-item"
           data-info-text="Canva is my go-to for quick and good looking designs."
         >
-          <Image
+          <img
             src="https://logo-teka.com/wp-content/uploads/2025/09/canva-icon-logo.png"
             alt="Canva"
-            width={64}
-            height={64}
+            width="64"
+            height="64"
+            loading="lazy"
           />
           <span>Canva</span>
         </div>
@@ -138,11 +145,12 @@ import portfolioImage from "../assets/portfolio.png";
           class="skill-item"
           data-info-text="GameMaker is great for 2D games and rapid prototyping. Undertale and various games inspired me to try this engine."
         >
-          <Image
+          <img
             src="https://cdn.simpleicons.org/gamemaker/ffffff"
             alt="GameMaker"
-            width={64}
-            height={64}
+            width="64"
+            height="64"
+            loading="lazy"
           />
           <span>GameMaker</span>
         </div>
@@ -150,11 +158,12 @@ import portfolioImage from "../assets/portfolio.png";
           class="skill-item"
           data-info-text="Laravel is a PHP framework for web applications with expressive, elegant syntax."
         >
-          <Image
+          <img
             src="https://cdn.simpleicons.org/laravel/ff2d20"
             alt="Laravel"
-            width={64}
-            height={64}
+            width="64"
+            height="64"
+            loading="lazy"
           />
           <span>Laravel</span>
         </div>
@@ -162,11 +171,12 @@ import portfolioImage from "../assets/portfolio.png";
           class="skill-item"
           data-info-text="A utility-first CSS framework for rapidly building custom designs."
         >
-          <Image
+          <img
             src="https://cdn.simpleicons.org/tailwindcss/06b6d4"
             alt="Tailwind CSS"
-            width={64}
-            height={64}
+            width="64"
+            height="64"
+            loading="lazy"
           />
           <span>Tailwind</span>
         </div>
@@ -174,20 +184,22 @@ import portfolioImage from "../assets/portfolio.png";
           class="skill-item"
           data-info-text="A popular front-end framework for developing responsive, mobile-first projects on the web."
         >
-          <Image
+          <img
             src="https://cdn.simpleicons.org/bootstrap/7952b3"
             alt="Bootstrap"
-            width={64}
-            height={64}
+            width="64"
+            height="64"
+            loading="lazy"
           />
           <span>Bootstrap</span>
         </div>
         <div class="skill-item">
-          <Image
+          <img
             src="https://cdn.simpleicons.org/php/777bb4"
             alt="PHP"
-            width={64}
-            height={64}
+            width="64"
+            height="64"
+            loading="lazy"
           />
           <span>PHP</span>
         </div>
@@ -195,11 +207,12 @@ import portfolioImage from "../assets/portfolio.png";
           class="skill-item"
           data-info-text="Node.js great for building scalable network applications."
         >
-          <Image
+          <img
             src="https://cdn.simpleicons.org/nodedotjs/339933"
             alt="Node.js"
-            width={64}
-            height={64}
+            width="64"
+            height="64"
+            loading="lazy"
           />
           <span>Node.js</span>
         </div>
@@ -207,11 +220,12 @@ import portfolioImage from "../assets/portfolio.png";
           class="skill-item"
           data-info-text="Adobe Photoshop is my favorite for image editing, the loading is kinda slow sometimes though..."
         >
-          <Image
+          <img
             src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/af/Adobe_Photoshop_CC_icon.svg/3840px-Adobe_Photoshop_CC_icon.svg.png"
             alt="Adobe Photoshop"
-            width={64}
-            height={64}
+            width="64"
+            height="64"
+            loading="lazy"
           />
           <span>Photoshop</span>
         </div>
@@ -219,11 +233,12 @@ import portfolioImage from "../assets/portfolio.png";
           class="skill-item"
           data-info-text="DaVinci Resolve is my choice for video editing because it's free and powerful."
         >
-          <Image
+          <img
             src="https://cdn.simpleicons.org/davinciresolve/ffffff"
             alt="DaVinci Resolve"
-            width={64}
-            height={64}
+            width="64"
+            height="64"
+            loading="lazy"
           />
           <span>DaVinci Resolve</span>
         </div>
@@ -231,11 +246,12 @@ import portfolioImage from "../assets/portfolio.png";
           class="skill-item"
           data-info-text="JavaScript, essential for interactive web development."
         >
-          <Image
+          <img
             src="https://cdn.simpleicons.org/javascript/f7df1e"
             alt="JavaScript"
-            width={64}
-            height={64}
+            width="64"
+            height="64"
+            loading="lazy"
           />
           <span>JavaScript</span>
         </div>
@@ -243,11 +259,12 @@ import portfolioImage from "../assets/portfolio.png";
           class="skill-item"
           data-info-text="Cisco Packet Tracer to simulate and test network configurations."
         >
-          <Image
+          <img
             src="https://cdn.simpleicons.org/cisco/1ba0d7"
             alt="Cisco"
-            width={64}
-            height={64}
+            width="64"
+            height="64"
+            loading="lazy"
           />
           <span>Packet Tracer</span>
         </div>
@@ -255,11 +272,12 @@ import portfolioImage from "../assets/portfolio.png";
           class="skill-item"
           data-info-text="Python is versatile and great, easy to read too!"
         >
-          <Image
+          <img
             src="https://cdn.simpleicons.org/python/3776ab"
             alt="Python"
-            width={64}
-            height={64}
+            width="64"
+            height="64"
+            loading="lazy"
           />
           <span>Python</span>
         </div>
@@ -268,47 +286,52 @@ import portfolioImage from "../assets/portfolio.png";
       <h3>Learning</h3>
       <div class="skill-list">
         <div class="skill-item">
-          <Image
+          <img
             src="https://cdn.simpleicons.org/react/61DAFB"
             alt="React"
-            width={64}
-            height={64}
+            width="64"
+            height="64"
+            loading="lazy"
           />
           <span>React</span>
         </div>
         <div class="skill-item">
-          <Image
+          <img
             src="https://cdn.simpleicons.org/preact/673ab8"
             alt="Preact"
-            width={64}
-            height={64}
+            width="64"
+            height="64"
+            loading="lazy"
           />
           <span>Preact</span>
         </div>
         <div class="skill-item">
-          <Image
+          <img
             src="https://cdn.simpleicons.org/threedotjs/ffffff"
             alt="Three.js"
-            width={64}
-            height={64}
+            width="64"
+            height="64"
+            loading="lazy"
           />
           <span>Three.js</span>
         </div>
         <div class="skill-item">
-          <Image
+          <img
             src="https://cdn.simpleicons.org/unity/ffffff"
             alt="Unity"
-            width={64}
-            height={64}
+            width="64"
+            height="64"
+            loading="lazy"
           />
           <span>Unity</span>
         </div>
         <div class="skill-item">
-          <Image
+          <img
             src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/bd/Logo_C_sharp.svg/960px-Logo_C_sharp.svg.png"
             alt="C#"
-            width={64}
-            height={64}
+            width="64"
+            height="64"
+            loading="lazy"
           />
           <span>C#</span>
         </div>
