@@ -1,5 +1,4 @@
 ---
-import { Image } from "astro:assets";
 import type { ImageMetadata } from "astro";
 
 export interface Props {
@@ -14,7 +13,12 @@ const { title, description, image, link, tags = [] } = Astro.props;
 ---
 
 <a href={link} class="card" target="_blank" rel="noopener noreferrer">
-  <Image src={image} alt={`Screenshot of ${title}`} width={400} height={225} />
+  ---
+  { /* Render image: if `image` is an object (ImageMetadata) use its `src`, otherwise use the string directly */ }
+  {
+    const imageSrc = typeof image === 'string' ? image : (image && image.src) || '';
+  }
+  <img src={imageSrc} alt={`Screenshot of ${title}`} width="400" height="225" loading="lazy" />
   <div class="card-content">
     <h4>{title}</h4>
     <p>{description}</p>
