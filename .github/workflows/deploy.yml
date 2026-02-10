@@ -7,28 +7,25 @@ on:
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
-    # Permissions must be at the job level, not inside steps
     permissions:
       contents: write
-      pages: write
-      id-token: write
-
     steps:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Use Node.js
+      - name: Setup Node
         uses: actions/setup-node@v4
         with:
           node-version: 20
+          cache: "npm"
 
       - name: Install dependencies
-        run: npm ci
+        run: npm install
 
-      - name: Build and copy to docs/
+      - name: Build
         run: npm run build:ghpages
 
-      - name: Deploy to Pages
+      - name: Deploy
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
