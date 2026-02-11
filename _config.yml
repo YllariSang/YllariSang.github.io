@@ -1,0 +1,8 @@
+# Prevent Jekyll from parsing non-Jekyll source files (Astro, node modules, build output)
+exclude:
+  - "src"
+  - "node_modules"
+  - "dist"
+  - "public"
+  - ".github"
+  - "docs"
